@@ -107,6 +107,12 @@
             android:defaultValue="true" />
             
         <Preference
+            android:key="battery_bar_category"
+            android:title="@string/battery_bar_title"
+            android:summary="@string/battery_bar_summary"
+            android:fragment="com.superior.lab.fragments.BatteryBar" />
+            
+        <Preference
             android:key="misc_batterysb"
             android:fragment="com.superior.lab.fragments.MiscBatterySettings"
             android:title="Misc Battery Icon Settings"
