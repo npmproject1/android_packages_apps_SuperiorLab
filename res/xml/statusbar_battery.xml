@@ -37,5 +37,11 @@
             android:fragment="com.superior.lab.fragments.MiscBatterySettings"
             android:title="Misc Battery Icon Settings"
             android:summary="customize statusbar battery icon settings" />
+            
+    <Preference
+        android:key="battery_bar_category"
+        android:title="@string/battery_bar_title"
+        android:summary="@string/battery_bar_summary"
+        android:fragment="com.superior.lab.fragments.BatteryBar" />
 
 </PreferenceScreen>
