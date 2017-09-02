@@ -138,6 +138,11 @@
             android:title="@string/sensor_block_title"
             android:summary="@string/sensor_block_summary"
             android:fragment="com.superior.lab.fragments.SensorBlockSettings"/>
-
+            
+        <Preference
+            android:key="wakelock_blocker"
+            android:title="@string/wakelock_blocker_title"
+            android:summary="@string/wakelock_blocker_summary"
+            android:fragment="com.superior.lab.fragments.WakeLockBlocker" />
     </PreferenceCategory>
 </PreferenceScreen>
