@@ -1032,4 +1032,8 @@
     
     <!-- QS Header Size -->
     <string name="large_qs_switch_title">QS Header Size</string>
+    
+    <!-- Brightness control -->
+    <string name="status_bar_brightness_control_title">Brightness control</string>
+    <string name="status_bar_brightness_control_summary">Adjust brightness by sliding across the status bar</string>
 </resources>
