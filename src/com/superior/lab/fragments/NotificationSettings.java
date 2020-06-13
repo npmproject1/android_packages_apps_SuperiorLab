@@ -53,11 +53,17 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_notification_light_repeats";
     private static final String FLASHLIGHT_CATEGORY = "flashlight_category";
     private static final String FLASHLIGHT_CALL_PREF = "flashlight_on_call";
+    private static final String FLASHLIGHT_DND_PREF = "flashlight_on_call_ignore_dnd";
+    private static final String FLASHLIGHT_RATE_PREF = "flashlight_on_call_rate";
 
     private SystemSettingListPreference mEdgeLightColorMode;
     private ColorPickerPreference mEdgeLightColor;
     private CustomSeekBarPreference mEdgeLightDuration;
     private CustomSeekBarPreference mEdgeLightRepeatCount;
+    
+    private ListPreference mFlashOnCall;
+    private SystemSettingSwitchPreference mFlashOnCallIgnoreDND;
+    private CustomSeekBarPreference mFlashOnCallRate;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -65,12 +71,11 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
 
         addPreferencesFromResource(R.xml.superior_lab_notifications);
         
-        ContentResolver resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getActivity().getContentResolver();
+        final Context mContext = getActivity().getApplicationContext();
         final PreferenceScreen prefScreen = getPreferenceScreen();
-        final Resources res = getResources();
+        final Resources res = mContext.getResources();
 	
-	Context context = getContext();
-
         mEdgeLightColorMode = (SystemSettingListPreference) findPreference(AMBIENT_LIGHT_COLOR);
         int edgeLightColorMode = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.NOTIFICATION_PULSE_COLOR_MODE, 0, UserHandle.USER_CURRENT);
@@ -102,10 +107,25 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         mEdgeLightRepeatCount.setValue(edgeLightRepeatCount);
         mEdgeLightRepeatCount.setOnPreferenceChangeListener(this);
         
-        if (!Utils.deviceHasFlashlight(mContext)) {
+        if (!SuperiorUtils.deviceHasFlashlight(mContext)) {
             final PreferenceCategory flashlightCategory =
                     (PreferenceCategory) prefScreen.findPreference(FLASHLIGHT_CATEGORY);
             prefScreen.removePreference(flashlightCategory);
+         } else {
+            mFlashOnCall = (ListPreference)
+                    prefScreen.findPreference(FLASHLIGHT_CALL_PREF);
+            mFlashOnCall.setOnPreferenceChangeListener(this);
+
+            mFlashOnCallIgnoreDND = (SystemSettingSwitchPreference)
+                    prefScreen.findPreference(FLASHLIGHT_DND_PREF);
+            int value = Settings.System.getInt(resolver,
+                    Settings.System.FLASHLIGHT_ON_CALL, 0);
+
+            mFlashOnCallRate = (CustomSeekBarPreference)
+                    prefScreen.findPreference(FLASHLIGHT_RATE_PREF);
+
+            mFlashOnCallIgnoreDND.setEnabled(value > 1);
+            mFlashOnCallRate.setEnabled(value > 0);
         }
     }
     
@@ -113,6 +133,10 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         ContentResolver resolver = mContext.getContentResolver();
         Settings.System.putIntForUser(resolver,
                 Settings.System.FLASHLIGHT_ON_CALL, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.FLASHLIGHT_ON_CALL_IGNORE_DND, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.FLASHLIGHT_ON_CALL_RATE, 1, UserHandle.USER_CURRENT);
     }
     
      @Override
@@ -152,7 +176,12 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.NOTIFICATION_PULSE_REPEATS, value, UserHandle.USER_CURRENT);
             return true;
-         }
+        } else if (preference == mFlashOnCall) {
+            int value = Integer.parseInt((String) newValue);
+            mFlashOnCallIgnoreDND.setEnabled(value > 1);
+            mFlashOnCallRate.setEnabled(value > 0);
+            return true;
+        }
         return false;
     }
 
