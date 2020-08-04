@@ -20,6 +20,12 @@
 
      <PreferenceCategory
         android:title="@string/general_category">
+        
+        <Preference
+            android:key="ambient_customization"
+            android:title="@string/ambient_text_category_title"
+            android:summary="@string/ambient_text_category_summary"
+            android:fragment="com.superior.lab.fragments.AmbientCustomizations" />
 
         <com.superior.support.preferences.SystemSettingSwitchPreference
             android:key="enable_ripple_effect"
