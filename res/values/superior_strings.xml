@@ -72,7 +72,7 @@
      <string name="cancel">Cancel</string>
      <string name="save">Save</string>
 
-     <!-- Units --> 
+     <!-- Units -->
      <string name="unit_seconds">seconds</string>
      <string name="unit_milliseconds">milliseconds</string>
 
@@ -244,4 +244,9 @@
     <string name="network_traffic_units_bits" translatable="false">kbps, Mbps, Gbps</string>
     <string name="network_traffic_units_bytes" translatable="false">kB/s, MB/s, GB/s</string>
 
+     <!-- Lockscreen media art -->
+     <string name="lockscreen_media_art_category_title">Media art</string>
+     <string name="keygaurd_media_art_title">Display media cover art</string>
+     <string name="keygaurd_media_art_summary">Show current playing media\'s album art on lockscreen</string>
+     <string name="lockscreen_media_blur_title">Media art blur level</string>
 </resources>
