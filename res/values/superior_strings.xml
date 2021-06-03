@@ -1044,4 +1044,18 @@
     <!-- Volume button swap on rotate -->
     <string name="swap_volume_buttons_title">Reorient</string>
     <string name="swap_volume_buttons_summary">Swap volume buttons when the screen is rotated</string>
+    
+    <!-- Alarm and Wakelock blocker -->
+    <string name="blocker_action_reload">Reload</string>
+    <string name="blocker_action_save">Save</string>
+    <string name="blocker_action_save_toast">Settings saved successfully</string>
+    <string name="blocker_warning_title">Warning</string>
+    <string name="wakelock_blocker_title">Wakelock blocker</string>
+    <string name="wakelock_blocker_summary">Block system wakelocks to save battery</string>
+    <string name="wakelock_blocker_warning">Blocking wakelocks has the potential to cause instability, crashes or data loss.</string>
+    <string name="wakelock_blocker_display_text">To see and block wakelocks, turn on wakelock blocker.</string>
+    <string name="alarm_blocker_title">Alarm blocker</string>
+    <string name="alarm_blocker_summary">Block alarms while the screen is off to save battery</string>
+    <string name="alarm_blocker_warning">Blocking alarms have the potential to cause instability, crashes or data loss.</string>
+    <string name="alarm_blocker_display_text">To see and block alarms, turn on alarm blocker.</string>
 </resources>
