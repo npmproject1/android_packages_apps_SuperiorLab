@@ -51,6 +51,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String AMBIENT_LIGHT_CUSTOM_COLOR = "ambient_notification_light_color";
     private static final String AMBIENT_LIGHT_DURATION = "ambient_notification_light_duration";
     private static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_notification_light_repeats";
+    private static final String FLASHLIGHT_CATEGORY = "flashlight_category";
+    private static final String FLASHLIGHT_CALL_PREF = "flashlight_on_call";
 
     private SystemSettingListPreference mEdgeLightColorMode;
     private ColorPickerPreference mEdgeLightColor;
@@ -99,6 +101,18 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
                 Settings.System.NOTIFICATION_PULSE_REPEATS, 0, UserHandle.USER_CURRENT);
         mEdgeLightRepeatCount.setValue(edgeLightRepeatCount);
         mEdgeLightRepeatCount.setOnPreferenceChangeListener(this);
+        
+        if (!Utils.deviceHasFlashlight(mContext)) {
+            final PreferenceCategory flashlightCategory =
+                    (PreferenceCategory) prefScreen.findPreference(FLASHLIGHT_CATEGORY);
+            prefScreen.removePreference(flashlightCategory);
+        }
+    }
+    
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.FLASHLIGHT_ON_CALL, 0, UserHandle.USER_CURRENT);
     }
     
      @Override
