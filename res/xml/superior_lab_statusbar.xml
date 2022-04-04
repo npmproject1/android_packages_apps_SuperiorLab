@@ -40,6 +40,13 @@
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
         </Preference>
+        
+        <com.superior.support.preferences.SystemSettingSwitchPreference
+            android:key="show_fourg_icon"
+            android:title="@string/show_fourg_icon_title"
+            android:summary="@string/show_fourg_icon_summary"
+            android:defaultValue="false"/>
+        
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -86,5 +93,5 @@
             android:summary="@string/status_bar_battery_text_charging_summary"
             android:defaultValue="true" />
 
-    </PreferenceCategory>   
+    </PreferenceCategory>
 </PreferenceScreen>
