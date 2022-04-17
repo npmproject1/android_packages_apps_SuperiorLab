@@ -640,5 +640,11 @@
     <!-- 5G icon -->
     <string name="show_fiveg_icon_summary">Show 5G instead of LTE &amp; 4G</string>
     <string name="show_fiveg_icon_title">Display 5G Indicator</string>
+    
+    <!-- Material dismiss all button for notifications -->
+    <string name="notification_material_dismiss_title">Clear all notification button</string>
+    <string name="notification_material_dismiss_summary">Replace clear all notification text with material style floating button</string>
+    <string name="notification_material_dismiss_style_title">Button style</string>
+    <string name="notification_material_dismiss_bgstyle_title">Button background</string>
 
 </resources>
