@@ -241,4 +241,8 @@
     <string name="incall_vibrate_call_wait_title">Vibrate on call waiting</string>
     <string name="incall_vibrate_disconnect_title">Vibrate on disconnect</string>
 
+    <!-- Data usage info in QS footer -->
+    <string name="qs_footer_datausage_title">Data usage</string>
+    <string name="qs_footer_datausage_summary">Display data usage summary in quick settings footer</string>
+
 </resources>
