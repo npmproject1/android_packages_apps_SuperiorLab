@@ -27,4 +27,15 @@
                android:defaultValue="25"
                settings:units="dp" />
      </PreferenceCategory>
+     
+     <PreferenceCategory
+        android:title="@string/general_category">
+
+     <Preference
+        android:key="pulse_settings"
+        android:fragment="com.superior.lab.fragments.PulseSettings"
+        android:title="@string/pulse_settings"
+        android:summary="@string/pulse_settings_summary" />
+
+    </PreferenceCategory>
 </PreferenceScreen>
