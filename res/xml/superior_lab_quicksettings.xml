@@ -24,6 +24,12 @@
                android:summary="@string/qs_footer_datausage_summary"
                android:defaultValue="false" />
                
+          <com.superior.support.preferences.SystemSettingSwitchPreference
+               android:key="qs_dual_tone"
+               android:title="@string/qs_dual_tone_title"
+               android:summary="@string/qs_dual_tone_summary"
+               android:defaultValue="true" />
+               
           <com.superior.support.preferences.SystemSettingSeekBarPreference
                android:key="qs_transparency"
                android:title="@string/qs_transparency_title"
