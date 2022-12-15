@@ -34,6 +34,12 @@
         android:title="@string/heads_up_notifications"
         android:summary="@string/heads_up_notifications_summary"
         android:fragment="com.superior.lab.fragments.HeadsUpSettings" />
+        
+    <com.superior.support.preferences.SystemSettingSwitchPreference
+            android:key="less_boring_heads_up"
+            android:title="@string/less_boring_heads_up_title"
+            android:summary="@string/less_boring_heads_up_summary"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 
@@ -57,4 +63,5 @@
             android:defaultValue="false" />
 
     </PreferenceCategory>
+	
 </PreferenceScreen>
