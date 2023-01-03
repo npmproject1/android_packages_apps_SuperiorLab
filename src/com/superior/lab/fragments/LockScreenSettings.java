@@ -29,6 +29,7 @@ import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.UserHandle;
 import androidx.preference.SwitchPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -40,6 +41,11 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.util.superior.udfps.UdfpsUtils;
 
+import com.superior.support.preferences.SystemSettingListPreference;
+import com.superior.support.preferences.SecureSettingSwitchPreference;
+
+import java.lang.StringBuilder;
+
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
@@ -48,11 +54,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
 
     private static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
+    private static final String KG_CUSTOM_CLOCK_COLOR_ENABLED = "kg_custom_clock_color_enabled";
 
-    private FingerprintManager mFingerprintManager;
-    private SwitchPreference mFingerprintSuccessVib;
-    private SwitchPreference mFingerprintErrorVib;
-
+    	private FingerprintManager mFingerprintManager;
+    	private SwitchPreference mFingerprintSuccessVib;
+    	private SwitchPreference mFingerprintErrorVib;
+    	private SwitchPreference mKGCustomClockColor;
+    	
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -89,6 +97,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             prefSet.removePreference(mFingerprintSuccessVib);
             prefSet.removePreference(mFingerprintErrorVib);
         }
+        
+        mKGCustomClockColor = (SwitchPreference) findPreference(KG_CUSTOM_CLOCK_COLOR_ENABLED);
+        boolean mKGCustomClockColorEnabled = Settings.Secure.getIntForUser(resolver,
+                Settings.Secure.KG_CUSTOM_CLOCK_COLOR_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+        mKGCustomClockColor.setChecked(mKGCustomClockColorEnabled);
+        mKGCustomClockColor.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -103,7 +117,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FP_ERROR_VIBRATE, value ? 1 : 0);
             return true;
-        }
+            
+        } else if (preference == mKGCustomClockColor) {
+            boolean val = (Boolean) newValue;
+            Settings.Secure.putIntForUser(resolver,
+                Settings.Secure.KG_CUSTOM_CLOCK_COLOR_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
+        }  
         return false;
     }
 
