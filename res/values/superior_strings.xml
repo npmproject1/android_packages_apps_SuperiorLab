@@ -647,4 +647,8 @@
     <string name="notification_material_dismiss_style_title">Button style</string>
     <string name="notification_material_dismiss_bgstyle_title">Button background</string>
 
+    <!-- Statusbar Clock background chip -->
+    <string name="statusbar_clock_chip_title">Background chip</string>
+    <string name="statusbar_clock_chip_summary">Display accented chip behind clock</string>
+    
 </resources>
