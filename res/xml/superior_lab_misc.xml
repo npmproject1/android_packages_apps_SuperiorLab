@@ -36,6 +36,13 @@
             android:targetPackage="ink.kscope.parallelspace"
             android:targetClass="ink.kscope.parallelspace.MainActivity" />
         </Preference>
+    
+    	<!-- Google services -->
+    	<Preference
+            android:key="gms_enabled_settings"
+            android:title="@string/gms_enabled_title"
+            android:summary="@string/gms_enabled_summary"
+            android:fragment="com.superior.lab.fragments.GmsSwitch"/>
 
         <com.superior.support.preferences.SystemSettingSwitchPreference
             android:key="enable_ripple_effect"
