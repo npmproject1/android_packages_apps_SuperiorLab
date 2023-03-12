@@ -62,6 +62,14 @@
             android:summary="@string/laboratory_ignore_window_secure_summary"
             android:defaultValue="false"/>
             
+        <!-- Screen Recorder -->       
+    	<com.superior.support.preferences.SystemSettingSeekBarPreference
+            android:key="frame_rate_recorder"
+            android:title="@string/frame_rate_recorder_title"
+            android:min="0"
+            android:max="120"
+            android:defaultValue="60" />
+            
         <com.superior.support.preferences.GlobalSettingSwitchPreference
             android:key="pie_animation_style"
             android:title="@string/pie_animation_style_title"
