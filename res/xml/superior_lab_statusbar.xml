@@ -105,6 +105,12 @@
             android:title="@string/status_bar_battery_text_charging_title"
             android:summary="@string/status_bar_battery_text_charging_summary"
             android:defaultValue="true" />
+            
+        <Preference
+            android:key="misc_batterysb"
+            android:fragment="com.superior.lab.fragments.MiscBatterySettings"
+            android:title="Misc Battery Icon Settings"
+            android:summary="customize statusbar battery icon settings" />
 
     </PreferenceCategory>
 </PreferenceScreen>
