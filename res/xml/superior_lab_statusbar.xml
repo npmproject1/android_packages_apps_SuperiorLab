@@ -102,6 +102,12 @@
         android:summary="@string/roaming_indicator_icon_summary"
         android:defaultValue="true"/>
         
+     <Preference
+            android:key="misc_signalwifisb"
+            android:fragment="com.superior.lab.fragments.MiscSignalAndWifiIconSettings"
+            android:title="Misc Signal and Wifi Icon Settings"
+            android:summary="customize statusbar signal wifi icon settings" />
+        
      <com.superior.support.preferences.SystemSettingListPreference
         android:key="statusbar_clock_chip"
         android:title="@string/statusbar_clock_chip_title"

@@ -929,4 +929,16 @@
     <!-- Frame rate recorder -->
     <string name="frame_rate_recorder_title">Frame rate in Screen Record</string>
     
+    <!-- custom signal dimen -->
+    <string name="custom_signal_dimension_title">Signal Icon Custom Dimension</string>
+    <string name="custom_signal_dimension_summary">use custom addjustable dimen values</string>
+    <string name="custom_signal_height">Height</string>
+    <string name="custom_signal_width">Width</string>
+
+    <!-- custom wifi dimen -->
+    <string name="custom_wifi_dimension_title">Wifi Icon Custom Dimension</string>
+    <string name="custom_wifi_dimension_summary">use custom addjustable dimen values</string>
+    <string name="custom_wifi_height">Height</string>
+    <string name="custom_wifi_width">Width</string>
+    
 </resources>
