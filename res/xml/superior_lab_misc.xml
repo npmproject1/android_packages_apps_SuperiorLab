@@ -43,6 +43,12 @@
             android:title="@string/gms_enabled_title"
             android:summary="@string/gms_enabled_summary"
             android:fragment="com.superior.lab.fragments.GmsSwitch"/>
+            
+    	<Preference
+            android:key="omnijaws_settings"
+            android:title="@string/qs_weather_settings_title"
+            android:summary="@string/qs_weather_settings_summary"
+            android:fragment="com.superior.lab.fragments.OmniJawsSettings" />
 
         <com.superior.support.preferences.SystemSettingSwitchPreference
             android:key="enable_ripple_effect"
