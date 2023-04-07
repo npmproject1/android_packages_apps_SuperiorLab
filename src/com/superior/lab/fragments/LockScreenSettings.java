@@ -55,11 +55,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     private static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
     private static final String FINGERPRINT_ERROR_VIB = "fingerprint_error_vib";
     private static final String KG_CUSTOM_CLOCK_COLOR_ENABLED = "kg_custom_clock_color_enabled";
+    private static final String LOCKSCREEN_DOUBLE_LINE_CLOCK = "lockscreen_double_line_clock_switch";
 
     	private FingerprintManager mFingerprintManager;
     	private SwitchPreference mFingerprintSuccessVib;
-    	private SwitchPreference mFingerprintErrorVib;
+    	private SwitchPreference mFingerprintErrorVib;    	 
     	private SwitchPreference mKGCustomClockColor;
+    	private SecureSettingSwitchPreference mDoubleLineClock;
     	
     @Override
     public void onCreate(Bundle icicle) {
@@ -103,6 +105,10 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
                 Settings.Secure.KG_CUSTOM_CLOCK_COLOR_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         mKGCustomClockColor.setChecked(mKGCustomClockColorEnabled);
         mKGCustomClockColor.setOnPreferenceChangeListener(this);
+        mDoubleLineClock = (SecureSettingSwitchPreference ) findPreference(LOCKSCREEN_DOUBLE_LINE_CLOCK);
+        mDoubleLineClock.setChecked((Settings.Secure.getInt(getContentResolver(),
+             Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK, 1) != 0));
+        mDoubleLineClock.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -123,7 +129,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
             Settings.Secure.putIntForUser(resolver,
                 Settings.Secure.KG_CUSTOM_CLOCK_COLOR_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
-        }  
+            
+        } else if (preference == mDoubleLineClock) {
+        	boolean value = (Boolean) newValue;
+            Settings.Secure.putInt(resolver,
+                    Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK, value ? 1 : 0);
+            return true; 
+        }
         return false;
     }
 
