@@ -40,7 +40,14 @@
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.StatusbarItemsActivity" />
         </Preference>
-        
+     
+     <com.superior.support.preferences.SystemPropertySwitchPreference
+        android:key="persist.sys.flags.combined_signal_icons"
+        android:title="@string/combined_status_bar_signal_icons_title"
+        android:summary="@string/combined_status_bar_signal_icons_summary"
+        android:defaultValue="true" />
+
+   
     <com.superior.support.preferences.SystemSettingSwitchPreference
             android:key="statusbar_colored_icons"
             android:title="@string/statusbar_colored_icons_title"

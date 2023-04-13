@@ -62,6 +62,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private Preference mPrivacyCam;
     private Preference mPrivacyLoc;
     private Preference mPrivacyMedia;
+    private Preference mCombinedSignalIcons;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -77,6 +78,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         mPrivacyLoc.setOnPreferenceChangeListener(this);
         mPrivacyMedia = findPreference(KEY_STATUS_BAR_PRIVACY_MEDIA);
         mPrivacyMedia.setOnPreferenceChangeListener(this);
+        mCombinedSignalIcons = findPreference("persist.sys.flags.combined_signal_icons");
+        mCombinedSignalIcons.setOnPreferenceChangeListener(this);
 
     }
 
@@ -86,6 +89,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
             systemUtils.showSystemRestartDialog(getContext());
             return true;
           }  
+       else if (preference == mCombinedSignalIcons) {
+            boolean value = (Boolean) objValue;
+            Settings.Secure.putIntForUser(getContentResolver(),
+                Settings.Secure.ENABLE_COMBINED_SIGNAL_ICONS, value ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
+        }
         return false;
     }
 
