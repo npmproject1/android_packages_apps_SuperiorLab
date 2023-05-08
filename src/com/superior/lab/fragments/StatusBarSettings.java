@@ -50,8 +50,18 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import com.android.internal.util.superior.systemUtils;
+
 public class StatusBarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
+
+    private static final String KEY_STATUS_BAR_PRIVACY_CAMERA = "enable_camera_privacy_indicator";
+    private static final String KEY_STATUS_BAR_PRIVACY_LOC = "enable_location_privacy_indicator";
+    private static final String KEY_STATUS_BAR_PRIVACY_MEDIA = "enable_projection_privacy_indicator";
+
+    private Preference mPrivacyCam;
+    private Preference mPrivacyLoc;
+    private Preference mPrivacyMedia;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -61,11 +71,21 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
+        mPrivacyCam = findPreference(KEY_STATUS_BAR_PRIVACY_CAMERA);
+        mPrivacyCam.setOnPreferenceChangeListener(this);
+        mPrivacyLoc = findPreference(KEY_STATUS_BAR_PRIVACY_LOC);
+        mPrivacyLoc.setOnPreferenceChangeListener(this);
+        mPrivacyMedia = findPreference(KEY_STATUS_BAR_PRIVACY_MEDIA);
+        mPrivacyMedia.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-
+      if (preference == mPrivacyCam || preference == mPrivacyLoc || preference == mPrivacyMedia) {
+            systemUtils.showSystemRestartDialog(getContext());
+            return true;
+          }  
         return false;
     }
 
