@@ -1058,4 +1058,8 @@
     <string name="alarm_blocker_summary">Block alarms while the screen is off to save battery</string>
     <string name="alarm_blocker_warning">Blocking alarms have the potential to cause instability, crashes or data loss.</string>
     <string name="alarm_blocker_display_text">To see and block alarms, turn on alarm blocker.</string>
+    
+    <!-- Doze on charge -->
+    <string name="doze_on_charge_title">Always show when charging</string>
+    <string name="doze_on_charge_summary">Display device is charging</string>
 </resources>

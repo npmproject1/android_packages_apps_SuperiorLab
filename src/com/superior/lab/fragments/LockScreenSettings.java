@@ -138,6 +138,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         }
         return false;
     }
+    
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+         Settings.Secure.putIntForUser(resolver,
+                Settings.Secure.DOZE_ON_CHARGE, 0, UserHandle.USER_CURRENT);
+    }
 
     @Override
     public int getMetricsCategory() {
