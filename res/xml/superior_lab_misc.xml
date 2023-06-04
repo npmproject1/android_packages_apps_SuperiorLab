@@ -50,6 +50,12 @@
             android:title="@string/charging_animation_bg_title"
             android:summary="@string/charging_animation_bg_summary"
             android:defaultValue="false" />
+           
+       <com.superior.support.preferences.SecureSettingSwitchPreference
+           android:key="spoof_storage_encryption_status"
+           android:title="@string/spoof_storage_encryption_status_title"
+           android:summary="@string/spoof_storage_encryption_status_summary"
+           android:defaultValue="false"/>
 
     </PreferenceCategory>
 </PreferenceScreen>
