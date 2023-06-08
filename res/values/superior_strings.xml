@@ -832,4 +832,13 @@
     <string name="power_menu_animation_translucent_bottom">Translucent (bottom)</string>
     <string name="power_menu_animation_rotate">Rotate</string>
     
+    <!-- volumebar styles -->
+    <string name="volumebar_style_title">Volume Seekbar Style</string>
+    <string name="volumebar_style_def">Default</string>
+    <string name="volumebar_style_1"> Style 1 </string>
+    <string name="volumebar_style_2"> Style 2</string>
+    <string name="volumebar_style_3"> Style 3</string>
+    <string name="volumebar_style_4"> Style 4</string>
+    <string name="volumebar_style_5"> Style 5</string>
+    
 </resources>

@@ -43,6 +43,15 @@
             android:dependency="VOLUME_TEXTVIEW"                                                     
             android:entryValues="@array/volume_persen_style_values"
             android:defaultValue="0" />
+            
+     <com.superior.support.preferences.SystemSettingListPreference
+            android:key="VOLUME_BAR_STYLES"                                                    
+            android:title="@string/volumebar_style_title"
+            android:summary="%s"
+            android:dialogTitle="@string/volumebar_style_title"
+            android:entries="@array/volumebar_style_entries"
+            android:entryValues="@array/volumebar_style_values"
+            android:defaultValue="0" /> 
 
      <com.superior.support.preferences.SystemSettingSwitchPreference
         android:key="volbtn_music_controls"
