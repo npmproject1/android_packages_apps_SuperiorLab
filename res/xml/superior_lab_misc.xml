@@ -27,6 +27,16 @@
             android:summary="@string/ambient_text_category_summary"
             android:fragment="com.superior.lab.fragments.AmbientCustomizations" />
 
+        <!-- Parallel Space -->
+    	<Preference
+            android:key="parallel_space"
+            android:title="@string/laboratory_parallel_space_title"
+            android:summary="@string/laboratory_parallel_space_summary">
+        <intent
+            android:targetPackage="ink.kscope.parallelspace"
+            android:targetClass="ink.kscope.parallelspace.MainActivity" />
+        </Preference>
+
         <com.superior.support.preferences.SystemSettingSwitchPreference
             android:key="enable_ripple_effect"
             android:title="@string/enable_fingerprint_ripple_effect_title"

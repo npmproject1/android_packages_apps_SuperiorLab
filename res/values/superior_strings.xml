@@ -898,4 +898,8 @@
     <string name="custom_fp_select_title">Select custom UDFPS icon from storage</string>
     <string name="custom_fp_select_summary">Select custom image from your saved files or gallery</string>
     
+    <!-- Parallel space -->
+    <string name="laboratory_parallel_space_title">Parallel space</string>
+    <string name="laboratory_parallel_space_summary">Allow running multiple instances of the same application in parallel</string>
+    
 </resources>
