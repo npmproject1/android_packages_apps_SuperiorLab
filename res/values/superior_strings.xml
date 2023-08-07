@@ -941,4 +941,9 @@
     <string name="custom_wifi_height">Height</string>
     <string name="custom_wifi_width">Width</string>
     
+    <!-- Settings Header -->
+    <string name="settings_header_image_title">Settings header image</string>
+    <string name="settings_header_image_random_title">Random Settings header image</string>
+    <string name="settings_header_image_random_summary">Enable random aesthetic settings dashboard banner/header images</string>
+    
 </resources>
