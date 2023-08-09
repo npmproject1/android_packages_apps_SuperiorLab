@@ -955,4 +955,11 @@
     <string name="settings_header_image_random_title">Random Settings header image</string>
     <string name="settings_header_image_random_summary">Enable random aesthetic settings dashboard banner/header images</string>
     
+    <!-- Spoofing -->
+    <string name="spoof_title">Spoofing</string>
+    
+    <!-- Unlock FPS for specific games -->
+    <string name="games_spoof_title">Unlock higher FPS in games</string>
+    <string name="games_spoof_summary">Spoof your device as a different model for specific games to unlock higher FPS</string>
+    
 </resources>
