@@ -49,13 +49,11 @@
                android:summary="%s"
                android:defaultValue="0" />
                
-          <com.superior.support.preferences.SystemSettingSeekBarPreference
+          <Preference
                android:key="qs_header_image"
+               android:fragment="com.superior.lab.fragments.qs.QsHeaderImageSettings"
                android:title="@string/qs_header_image_title"
-               android:defaultValue="0"
-               settings:interval="1"
-               android:max="36"
-               android:min="0" />
+               android:summary="@string/qs_header_image_summary" />
 
      </PreferenceCategory>
      <PreferenceCategory
