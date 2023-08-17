@@ -498,25 +498,6 @@
     <string name="single_line">Single-line</string>
     <string name="double_line">Double-line</string>
     
-    <!-- QS header image -->
-    <string name="status_bar_custom_header_title">Header image</string>
-    <string name="status_bar_custom_header_summary">Use a custom image for QS header</string>
-    <string name="daylight_header_provider" translatable="false">daylight</string>
-    <string name="file_header_provider" translatable="false">file</string>
-    <string name="custom_header_provider_title">Image type</string>
-    <string name="daylight_header_provider_title">Automatic (Time based)</string>
-    <string name="file_header_provider_title">Static</string>
-    <string name="daylight_header_pack_title">Image collection</string>
-    <string name="header_provider_disabled">Disabled</string>
-    <string name="custom_header_pick_title">Pick image from collection</string>
-    <string name="custom_header_pick_summary">Select an image from pre-installed image collections</string>
-    <string name="status_bar_custom_header_shadow_title">Darken image</string>
-
-    <string name="status_bar_custom_header_visbility_title">Header Image Visibility Style</string>
-    <string name="status_bar_custom_header_animate_title">Header Image Animation Style</string>
-    <string name="status_bar_custom_header_height">Height Potrait</string>
-    <string name="status_bar_custom_header_heightland">Height LandScape</string>
-    
     <!-- Qs Transparency -->
     <string name="qs_transparency_summary">Choose how transparent you want your qs to be</string>
     <string name="qs_transparency_title">Qs Transparency</string>
@@ -968,5 +949,8 @@
     <!-- Unlock FPS for specific games -->
     <string name="games_spoof_title">Unlock higher FPS in games</string>
     <string name="games_spoof_summary">Spoof your device as a different model for specific games to unlock higher FPS</string>
+    
+    <!-- QS Header -->
+    <string name="qs_header_image_title">Header image</string>
     
 </resources>

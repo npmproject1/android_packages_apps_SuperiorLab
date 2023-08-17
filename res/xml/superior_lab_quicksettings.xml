@@ -12,11 +12,14 @@
         android:key="quick_settings_general_category"
         android:title="@string/general_category">
         
-        <Preference
-            android:key="custom_header"
-            android:fragment="com.superior.lab.fragments.QsHeader"
-            android:title="@string/status_bar_custom_header_title"
-            android:summary="@string/status_bar_custom_header_summary" />
+        <!-- QS Header Image -->
+        <com.superior.support.preferences.SystemSettingSeekBarPreference
+            android:key="qs_header_image"
+            android:title="@string/qs_header_image_title"
+            android:defaultValue="0"
+            settings:interval="1"
+            android:max="36"
+            android:min="0" />
             
         <com.superior.support.preferences.SystemSettingListPreference
             android:key="qs_panel_style"
