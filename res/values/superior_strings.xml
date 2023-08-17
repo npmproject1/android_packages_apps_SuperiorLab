@@ -421,5 +421,8 @@
     <string name="qs_reflected">Reflected</string>
     <string name="qs_surround">Surround</string>
     <string name="qs_thin">ThinLine</string>
-
+    
+    <!-- QS Header -->
+    <string name="qs_header_image_title">Header image</string>
+    
 </resources>
