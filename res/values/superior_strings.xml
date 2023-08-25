@@ -1015,4 +1015,8 @@
     <string name="toast_SlideLeftRight_animation">Slide left to right</string>
     <string name="toast_SlideRightLeft_animation">Slide right to left</string>
     <string name="toast_animation_test">This is test for selected toast animation</string>
+    
+    <!-- Colorful battery icon -->
+    <string name="battery_level_colors_title">Colorful Circle battery icon</string>
+    <string name="battery_level_colors_summary">Each battery level drop is color coded</string>
 </resources>

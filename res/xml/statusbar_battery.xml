@@ -43,5 +43,11 @@
         android:title="@string/battery_bar_title"
         android:summary="@string/battery_bar_summary"
         android:fragment="com.superior.lab.fragments.BatteryBar" />
+        
+    <com.superior.support.preferences.SystemSettingSwitchPreference
+            android:key="battery_level_colors"
+            android:title="@string/battery_level_colors_title"
+            android:summary="@string/battery_level_colors_summary"
+            android:defaultValue="false" />
 
 </PreferenceScreen>
