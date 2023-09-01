@@ -40,6 +40,10 @@ import com.android.settings.SettingsPreferenceFragment;
 
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+        
+    private static final String SCREEN_OFF_UDFPS_ENABLED = "screen_off_udfps_enabled";
+    
+    private Preference mScreenOffUdfps;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -50,6 +54,12 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         Resources resources = getResources();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final PreferenceScreen prefSet = getPreferenceScreen();
+        
+        mScreenOffUdfps = (Preference) prefSet.findPreference(SCREEN_OFF_UDFPS_ENABLED);
+        boolean mScreenOffUdfpsAvailable = resources.getBoolean(
+                com.android.internal.R.bool.config_supportScreenOffUdfps);
+        if (!mScreenOffUdfpsAvailable)
+            prefSet.removePreference(mScreenOffUdfps);
 
     }
 
