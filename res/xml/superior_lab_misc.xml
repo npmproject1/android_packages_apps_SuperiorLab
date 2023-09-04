@@ -58,6 +58,12 @@
         	android:entryValues="@array/toast_animation_values"
         	android:summary="%s"
         	android:defaultValue="1" />
+        	
+        <com.superior.support.preferences.SecureSettingSwitchPreference
+        	android:key="media_controls_always_show_time"
+        	android:title="@string/media_controls_always_show_time_title"
+        	android:summary="@string/media_controls_always_show_time_summary"
+        	android:defaultValue="false" />
 
         <com.superior.support.preferences.SystemSettingSwitchPreference
             android:key="enable_ripple_effect"

@@ -1097,4 +1097,8 @@
     <!-- QS date -->
     <string name="qs_date_title">Date</string>
     <string name="qs_date_summary">Display date in quick status bar header</string>
+    
+    <!-- Media player settings -->
+    <string name="media_controls_always_show_time_title">Always show time</string>
+    <string name="media_controls_always_show_time_summary">Always show passed and total time on media player</string>
 </resources>
