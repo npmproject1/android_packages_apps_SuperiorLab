@@ -54,6 +54,14 @@
                android:fragment="com.superior.lab.fragments.qs.QsHeaderImageSettings"
                android:title="@string/qs_header_image_title"
                android:summary="@string/qs_header_image_summary" />
+               
+          <com.superior.support.preferences.SystemSettingSeekBarPreference
+               android:key="qs_header_size"
+               android:title="@string/large_qs_switch_title"
+               android:max="400"
+               settings:min="110"
+               settings:interval="1"
+               android:defaultValue="220" />
 
      </PreferenceCategory>
      <PreferenceCategory
