@@ -58,7 +58,7 @@
     <com.superior.support.preferences.SecureSettingSeekBarPreference
         android:key="kg_custom_clock_top_margin"
         android:title="@string/kg_custom_clock_top_margin_title"
-        android:max="500"
+        android:max="900"
         settings:min="80"
         settings:interval="1"
         android:defaultValue="280"
@@ -67,7 +67,7 @@
     <com.superior.support.preferences.SecureSettingSeekBarPreference
         android:key="kg_small_clock_text_size"
         android:title="@string/kg_small_clock_text_size_title"
-        android:max="100"
+        android:max="200"
         settings:min="25"
         settings:interval="1"
         android:defaultValue="80"
