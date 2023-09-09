@@ -111,7 +111,7 @@
                android:key="qs_dual_tone"
                android:title="@string/qs_dual_tone_title"
                android:summary="@string/qs_dual_tone_summary"
-               android:defaultValue="true" />
+               android:defaultValue="false" />
     </PreferenceCategory>
     
     <PreferenceCategory
