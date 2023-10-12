@@ -42,6 +42,7 @@ import com.superior.support.preferences.SystemSettingListPreference;
 import com.superior.support.preferences.SystemSettingSwitchPreference;
 import com.superior.support.colorpicker.ColorPickerPreference;
 import com.android.internal.util.superior.SuperiorUtils;
+import com.android.internal.util.superior.systemUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +56,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private static final String FLASHLIGHT_CALL_PREF = "flashlight_on_call";
     private static final String FLASHLIGHT_DND_PREF = "flashlight_on_call_ignore_dnd";
     private static final String FLASHLIGHT_RATE_PREF = "flashlight_on_call_rate";
+    private static final String RETICKER_STATUS = "reticker_status";
 
     private SystemSettingListPreference mEdgeLightColorMode;
     private ColorPickerPreference mEdgeLightColor;
@@ -64,6 +66,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     private ListPreference mFlashOnCall;
     private SystemSettingSwitchPreference mFlashOnCallIgnoreDND;
     private CustomSeekBarPreference mFlashOnCallRate;
+    private Preference mRetickerStatus;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -127,6 +130,8 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
             mFlashOnCallIgnoreDND.setEnabled(value > 1);
             mFlashOnCallRate.setEnabled(value > 0);
         }
+        mRetickerStatus = findPreference(RETICKER_STATUS);
+            mRetickerStatus.setOnPreferenceChangeListener(this);
     }
     
     public static void reset(Context mContext) {
@@ -181,7 +186,10 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
             mFlashOnCallIgnoreDND.setEnabled(value > 1);
             mFlashOnCallRate.setEnabled(value > 0);
             return true;
-        }
+        } else if (preference == mRetickerStatus) {
+            systemUtils.showSystemUIRestartDialog(getContext());
+            return true;
+        }    
         return false;
     }
 
