@@ -99,7 +99,7 @@ public class QsTileLayoutSettings extends SettingsPreferenceFragment
         mQqsRows = (CustomSeekBarPreference) findPreference(KEY_QQS_ROW_PORTRAIT);
         mQqsRows.setOnPreferenceChangeListener(this);
 
-        mContext = getContext();
+        mContext = getActivity();
 
         LayoutPreference preference = findPreference(KEY_APPLY_CHANGE_BUTTON);
         mApplyChange = (Button) preference.findViewById(R.id.apply_change);
@@ -197,7 +197,7 @@ public class QsTileLayoutSettings extends SettingsPreferenceFragment
         }
 
         void observe() {
-            Context mContext = getContext();
+            Context mContext = getActivity();
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_UI_STYLE),
@@ -215,7 +215,7 @@ public class QsTileLayoutSettings extends SettingsPreferenceFragment
     private void updateQsStyle() {
         ContentResolver resolver = getActivity().getContentResolver();
 
-        boolean isA11Style = Settings.System.getIntForUser(getContext().getContentResolver(),
+        boolean isA11Style = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_UI_STYLE , 1, UserHandle.USER_CURRENT) == 1;
 
 	String qsUIStyleCategory = "android.theme.customization.qs_ui";
