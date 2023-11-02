@@ -614,6 +614,8 @@
     <string name="statusbar_clock_chip_summary">Display accented chip behind clock</string>
     <string name="status_bar_clock_font_style_title">Clock font style</string>
     <string name="status_bar_clock_color_title">Clock font color</string>
+    <string name="status_bar_custom_clock_color_title">Custom clock color</string>
+    <string name="status_bar_custom_clock_color_summary">Clock color</string>
     <string name="solid_accent">Accent</string>
     <string name="outline">Outline</string>
     <string name="solid_accent_gradient">Gradient</string>
