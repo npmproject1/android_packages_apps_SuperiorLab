@@ -199,11 +199,6 @@
     <string name="lockscreen_power_menu_disabled_title">Disable power menu on lock screen</string>
     <string name="lockscreen_power_menu_disabled_summary">This will only disable the power menu on secure lock screens</string>
 
-    <!-- Media art -->
-    <string name="lockscreen_media_art_options_title">Media cover art</string>
-    <string name="media_art_title">Media cover art</string>
-    <string name="media_art_summary">Display media cover art when available</string>
-
     <!-- Units -->
     <string name="unit_milliseconds">milliseconds</string>
     <string name="unit_percent" translatable="false">\u0025</string>
@@ -1064,4 +1059,5 @@
     <!-- Doze on charge -->
     <string name="doze_on_charge_title">Always show when charging</string>
     <string name="doze_on_charge_summary">Display device is charging</string>
+    
 </resources>
