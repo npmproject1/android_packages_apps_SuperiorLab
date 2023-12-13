@@ -56,6 +56,12 @@
             android:summary="@string/roaming_indicator_icon_summary"
             android:defaultValue="true"/>
             
+        <Preference
+            android:fragment="com.superior.lab.fragments.NetworkTrafficSettings"
+            android:key="network_traffic_settings"
+            android:title="@string/network_traffic_settings_title"
+            android:summary="@string/network_traffic_settings_summary" />
+            
     </PreferenceCategory>
 
     <PreferenceCategory
