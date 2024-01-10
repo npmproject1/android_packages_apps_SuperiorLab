@@ -104,6 +104,14 @@
             settings:layout="@layout/superior_dashboard_preference_top"
             android:icon="@drawable/ic_settings_miscs"/>
             
+       <!-- About -->
+       <Preference
+            android:key="about_category"
+            android:title="@string/about_title" 
+            android:fragment="com.superior.lab.fragments.About"
+            settings:layout="@layout/superior_dashboard_preference_middle"
+            android:icon="@drawable/ic_info"/>
+            
        <Preference
             android:key="team__category"
             android:title="@string/team_title" 

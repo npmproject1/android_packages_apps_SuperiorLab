@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 SuperiorOS
+ * Copyright (C) 2023 SuperiorOS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.SwitchPreference;
 import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -45,6 +44,7 @@ import java.util.List;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.superior.lab.fragments.SmartPixels;
+import com.superior.lab.fragments.SmartCharging;
 import com.android.internal.util.superior.systemUtils;
 
 @SearchIndexable
@@ -52,17 +52,36 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
     
     private static final String SMART_PIXELS = "smart_pixels";
+    private static final String SMART_CHARGING = "smart_charging";
     private static final String SETTINGS_HEADER_IMAGE_RANDOM = "settings_header_image_random";
+    
+    private static final String SYS_GAMES_SPOOF = "persist.sys.pixelprops.games";
+    private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
+    private static final String SYS_NETFLIX_SPOOF = "persist.sys.pixelprops.netflix";
 
     private Preference mSmartPixels;
+    private Preference mSmartCharging;
     private Preference mSettingsHeaderImageRandom;
-
+    private Preference mGcamSpoof;
+    
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.superior_lab_misc);
-        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final PreferenceScreen prefScreen = getPreferenceScreen()
+        
+        mSmartCharging = (Preference) prefScreen.findPreference(SMART_CHARGING);
+        boolean mSmartChargingSupported = res.getBoolean(
+                com.android.internal.R.bool.config_smartChargingAvailable);
+        if (!mSmartChargingSupported)
+            prefScreen.removePreference(mSmartCharging);    
+        
+        mGcamSpoof = (Preference) prefScreen.findPreference("persist.sys.pixelprops.gcam");
+        boolean isPixel6Series = SystemProperties.get("ro.product.brand").toLowerCase().contains("google") 
+                        && SystemProperties.get("ro.product.manufacturer").toLowerCase().contains("google");
+        if (!isPixel6Series) {
+            prefScreen.removePreference(mGcamSpoof);
         
         mSettingsHeaderImageRandom = findPreference(SETTINGS_HEADER_IMAGE_RANDOM);
         mSettingsHeaderImageRandom.setOnPreferenceChangeListener(this);
@@ -76,6 +95,10 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
         SmartPixels.reset(mContext);
+        SmartCharging.reset(mContext);
+        SystemProperties.set(SYS_GAMES_SPOOF, "false");
+        SystemProperties.set(SYS_PHOTOS_SPOOF, "true");
+        SystemProperties.set(SYS_NETFLIX_SPOOF, "false");
     }
 
     @Override
@@ -102,6 +125,12 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
+                    
+                    boolean mSmartChargingSupported = res.getBoolean(
+                            com.android.internal.R.bool.config_smartChargingAvailable);
+                    if (!mSmartChargingSupported)
+                        keys.add(SMART_CHARGING);
+                        
 
                     boolean mSmartPixelsSupported = context.getResources().getBoolean(
                             com.android.internal.R.bool.config_supportSmartPixels);

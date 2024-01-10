@@ -56,7 +56,35 @@
     <string name="statusbar_title">Status bar</string>
     <string name="notifications_title">Notifications</string>
     <string name="fingerprint_category">Fingerprint</string>
+    <string name="about_title">About Lc</string>
 
+    <!-- Changelog -->
+    <string name="changelog_lc_title">Current changelog</string>
+    <string name="changelog_lc_summary">View changes in the ROM installed</string>
+    <string name="changelog_lc_error">Unable to load changelog</string>
+    
+    <!-- About LocalCommunity -->
+    <string name="about_lc">About LocalCommunity</string>
+    <string name="about_device_name">Lavender</string>
+    
+    <!-- Share LocalCommunity -->
+    <string name="share_lc_title">Share LocalCommunity</string>
+    <string name="share_lc_summary">Mod Development From LocalCommunity</string>
+    <string name="share_message">Initial support is for lavender only</string>
+    <string name="share_chooser_title">Share LocalCommunity</string>
+    
+        <!-- Sites LocalCommunity -->
+    <string name="lc_telegram_title">Local Community</string>
+    <string name="lc_telegram_summary">We are on telegram. Join us!</string>
+    <string name="lc_telegram_channel_title">Updates channel</string>
+    <string name="lc_telegram_channel_summary">Get notified of new builds on Telegram</string>
+
+    <!-- Donate LocalCommunity -->
+    <string name="donate_lc_title">Support Maintainers</string>
+    <string name="donate_lc_summary">Donate To Support Further Development</string>
+    <string name="donate_team_title">LocalCommunity team</string>
+    <string name="donate_team_summary">Support Us If You Like Our Build</string>
+    
     <!-- Sub category -->
     <string name="general_category">General</string>
     <string name="statusbar_icons">Icons</string>
@@ -636,6 +664,16 @@
     <string name="smart_pixels_shift_title">Burn-in protection</string>
     <string name="smart_pixels_shift_summary">Prevents burn-in on OLED devices by shifting pixels every so often</string>
     
+    <!-- Smart charging -->
+    <string name="smart_charging_title">Smart Charging</string>
+    <string name="smart_charging_summary">Set maximum charging level</string>
+    <string name="smart_charging_switch_title">Enable Smart Charging</string>
+    <string name="smart_charging_level_title">Stop trigger level</string>
+    <string name="smart_charging_resume_level_title">Start trigger level</string>
+    <string name="smart_charging_reset_stats_title">Reset battery statistics</string>
+    <string name="smart_charging_reset_stats_summary">Reset battery statistics after reaching user defined charging level</string>
+    <string name="smart_charging_footer">Smart Charging allows you to set maximum charging level to extend the lifespan of your battery. When enabled, battery stops charging at Stop trigger level and resumes charging at Start trigger level. Stop trigger level should be always greater than Start trigger level.</string>
+    
     <!-- TimeOut Summary -->
     <string name="custom_timeout_summary_never">Never</string>
     <string name="custom_timeout_summary_15secs">15 seconds</string>
@@ -648,10 +686,6 @@
     <string name="custom_timeout_summary_30mins">30 minutes</string>
     <string name="custom_timeout_summary_1hour">1 hour</string>
     <string name="custom_timeout_summary_2hours">2 hours</string>
-    
-    <!-- Spoof storage encryption status -->
-    <string name="spoof_storage_encryption_status_title">Use storage encryption spoofing</string>
-    <string name="spoof_storage_encryption_status_summary">Spoof storage encryption status to encrypted.</string>
     
     <!-- Ambient edge lighting -->
     <string name="pulse_ambient_light_category">Screen edge lighting</string>
@@ -874,12 +908,32 @@
     <string name="settings_header_image_random_title">Random Settings header image</string>
     <string name="settings_header_image_random_summary">Enable random aesthetic settings dashboard banner/header images</string>
     
+    <!-- Netflix Spoof -->
+    <string name="netflix_spoof_title">Netflix spoof</string>
+    <string name="netflix_spoof_summary">Spoof your device as different model for Netflix</string>
+
+    <!-- Spoof all apps -->
+    <string name="spoof_all_title">Spoof All apps</string>
+    <string name="spoof_all_summary">Spoof all possible apps as Pixel XL for misc benefits (samsung accesories, cts pass etc)</string>
+    
     <!-- Spoofing -->
     <string name="spoof_title">Spoofing</string>
+    
+    <!-- Unlimited google photos storage -->
+    <string name="use_photos_spoof_title">Unlimited Photos storage</string>
+    <string name="use_photos_spoof_summary">Spoof your device as Pixel XL for Google Photos app only to provide unlimited storage for backup</string>
     
     <!-- Unlock FPS for specific games -->
     <string name="games_spoof_title">Unlock higher FPS in games</string>
     <string name="games_spoof_summary">Spoof your device as a different model for specific games to unlock higher FPS</string>
+    
+    <!-- Gcam Spoof -->
+    <string name="use_gcam_spoof_title">Google camera spoof</string>
+    <string name="use_gcam_spoof_summary">Spoof your device as Pixel 7 Pro to unlock some google camera features (some features requires hardware compatibility)</string>
+    
+    <!-- Spoof storage encryption status -->
+    <string name="spoof_storage_encryption_status_title">Use storage encryption spoofing</string>
+    <string name="spoof_storage_encryption_status_summary">Spoof storage encryption status to encrypted.</string>
     
     <!-- QS Header -->
     <string name="qs_header_image_title">Header image</string>

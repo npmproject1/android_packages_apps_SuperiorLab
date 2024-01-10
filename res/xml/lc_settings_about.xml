@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2024 FebriCahyaa <febricahya12345@gmail.com>
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <!-- Lc Changelog -->
+    <Preference
+        android:key="lc_changelog"
+        android:icon="@drawable/ic_changelog"
+        android:title="@string/changelog_lc_title"
+        android:summary="@string/changelog_lc_summary">
+        <intent android:action="android.intent.action.MAIN"
+             android:targetPackage="com.android.settings"
+             android:targetClass="com.superior.lab.fragments.ChangelogActivity"/>
+    </Preference>
+
+    <!-- Lc Donate -->
+    <Preference
+        android:key="lc_donate"
+        android:icon="@drawable/ic_donate"
+        android:title="@string/donate_lc_title"
+        android:summary="@string/donate_lc_summary" />
+
+    <!-- Lc Telegram -->
+    <Preference
+        android:key="lc_telegram"
+        android:icon="@drawable/ic_telegram"
+        android:title="@string/lc_telegram_title"
+        android:summary="@string/lc_telegram_summary" />
+
+    <!-- Lc Telegram Updates Channel -->
+    <Preference
+        android:key="lc_telegram_channel"
+        android:icon="@drawable/ic_telegram_channel"
+        android:title="@string/lc_telegram_channel_title"
+        android:summary="@string/lc_telegram_channel_summary" />
+
+</PreferenceScreen>
