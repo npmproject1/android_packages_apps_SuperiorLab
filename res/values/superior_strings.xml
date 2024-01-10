@@ -57,23 +57,12 @@
     <string name="notifications_title">Notifications</string>
     <string name="fingerprint_category">Fingerprint</string>
     <string name="about_title">About Lc</string>
-
-    <!-- Changelog -->
-    <string name="changelog_lc_title">Current changelog</string>
-    <string name="changelog_lc_summary">View changes in the ROM installed</string>
-    <string name="changelog_lc_error">Unable to load changelog</string>
     
     <!-- About LocalCommunity -->
     <string name="about_lc">About LocalCommunity</string>
     <string name="about_device_name">Lavender</string>
     
-    <!-- Share LocalCommunity -->
-    <string name="share_lc_title">Share LocalCommunity</string>
-    <string name="share_lc_summary">Mod Development From LocalCommunity</string>
-    <string name="share_message">Initial support is for lavender only</string>
-    <string name="share_chooser_title">Share LocalCommunity</string>
-    
-        <!-- Sites LocalCommunity -->
+    <!-- Sites LocalCommunity -->
     <string name="lc_telegram_title">Local Community</string>
     <string name="lc_telegram_summary">We are on telegram. Join us!</string>
     <string name="lc_telegram_channel_title">Updates channel</string>
