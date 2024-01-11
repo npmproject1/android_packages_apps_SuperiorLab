@@ -69,7 +69,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.superior_lab_misc);
-        final PreferenceScreen prefScreen = getPreferenceScreen()
+        final PreferenceScreen prefScreen = getPreferenceScreen();
         
         mSmartCharging = (Preference) prefScreen.findPreference(SMART_CHARGING);
         boolean mSmartChargingSupported = res.getBoolean(
@@ -82,6 +82,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                         && SystemProperties.get("ro.product.manufacturer").toLowerCase().contains("google");
         if (!isPixel6Series) {
             prefScreen.removePreference(mGcamSpoof);
+        }    
         
         mSettingsHeaderImageRandom = findPreference(SETTINGS_HEADER_IMAGE_RANDOM);
         mSettingsHeaderImageRandom.setOnPreferenceChangeListener(this);
