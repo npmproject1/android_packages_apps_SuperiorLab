@@ -18,38 +18,26 @@ package com.superior.lab.fragments;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.ContentResolver;
-import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.SystemProperties;
-import android.os.UserHandle;
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-
 import com.android.settings.SettingsPreferenceFragment;
 import com.superior.lab.fragments.SmartPixels;
 import com.superior.lab.fragments.SmartCharging;
 import com.android.internal.util.superior.systemUtils;
 
+import java.util.List;
+
 @SearchIndexable
 public class MiscSettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener {
     
     private static final String SMART_PIXELS = "smart_pixels";
     private static final String SMART_CHARGING = "smart_charging";
@@ -67,6 +55,8 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        Resources res = getResources();
 
         addPreferencesFromResource(R.xml.superior_lab_misc);
         final PreferenceScreen prefScreen = getPreferenceScreen();
@@ -87,7 +77,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mSettingsHeaderImageRandom = findPreference(SETTINGS_HEADER_IMAGE_RANDOM);
         mSettingsHeaderImageRandom.setOnPreferenceChangeListener(this);
         mSmartPixels = (Preference) prefScreen.findPreference(SMART_PIXELS);
-        boolean mSmartPixelsSupported = getResources().getBoolean(
+        boolean mSmartPixelsSupported = res.getBoolean(
                 com.android.internal.R.bool.config_supportSmartPixels);
         if (!mSmartPixelsSupported)
             prefScreen.removePreference(mSmartPixels);
@@ -104,12 +94,11 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-    	Context mContext = getActivity().getApplicationContext();
-	ContentResolver resolver = mContext.getContentResolver();
-	if (preference == mSettingsHeaderImageRandom) {
+        Context mContext = getActivity().getApplicationContext();
+        if (preference == mSettingsHeaderImageRandom) {
             systemUtils.showSettingsRestartDialog(getContext());
             return true;
-          }  
+        }  
         return false;
     }
 
@@ -125,15 +114,15 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             new BaseSearchIndexProvider(R.xml.superior_lab_misc) {
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
+                    Context mContext = context;
+                    List<String> keys = super.getNonIndexableKeys(mContext);
                     
-                    boolean mSmartChargingSupported = res.getBoolean(
+                    boolean mSmartChargingSupported = mContext.getResources().getBoolean(
                             com.android.internal.R.bool.config_smartChargingAvailable);
                     if (!mSmartChargingSupported)
                         keys.add(SMART_CHARGING);
                         
-
-                    boolean mSmartPixelsSupported = context.getResources().getBoolean(
+                    boolean mSmartPixelsSupported = mContext.getResources().getBoolean(
                             com.android.internal.R.bool.config_supportSmartPixels);
                     if (!mSmartPixelsSupported)
                         keys.add(SMART_PIXELS);
