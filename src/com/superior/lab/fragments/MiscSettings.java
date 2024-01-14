@@ -56,6 +56,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     private Preference mSettingsHeaderImageRandom;
     private Preference mSmartPixels;
+    private Preference mGcamSpoof;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -67,6 +68,13 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         
         mSettingsHeaderImageRandom = findPreference(SETTINGS_HEADER_IMAGE_RANDOM);
         mSettingsHeaderImageRandom.setOnPreferenceChangeListener(this);
+        
+        mGcamSpoof = (Preference) prefScreen.findPreference("persist.sys.pixelprops.gcam");
+        boolean isPixel6Series = SystemProperties.get("ro.product.brand").toLowerCase().contains("google") 
+                        && SystemProperties.get("ro.product.manufacturer").toLowerCase().contains("google");
+        if (!isPixel6Series) {
+            prefScreen.removePreference(mGcamSpoof);
+        }
         
         mSmartPixels = (Preference) prefScreen.findPreference(SMART_PIXELS);
         boolean mSmartPixelsSupported = getResources().getBoolean(
